@@ -1,19 +1,50 @@
-# gta6-cover-art
+# VICE CITY AIRLINES — Boarding Pass (GTA 6 meme)
 
-[![make.fun · gta6-cover-art-01](https://make.fun/badge/gta6-cover-art-01.svg)](https://make.fun/bounty/gta6-cover-art-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
-[![rank](https://make.fun/badge/gta6-cover-art-01/skykc/gta6-cover-art/rank.svg)](https://make.fun/bounty/gta6-cover-art-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
-[![reward](https://make.fun/badge/gta6-cover-art-01/skykc/gta6-cover-art/reward.svg)](https://make.fun/bounty/gta6-cover-art-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
+[![make.fun · gta6-meme-x-01](https://make.fun/badge/gta6-meme-x-01.svg)](https://make.fun/bounty/gta6-meme-x-01?utm_source=github&utm_medium=referral&utm_campaign=bounty&utm_content=gta6-meme-x-01&ref=6en97dxm)
+[![rank](https://make.fun/badge/gta6-meme-x-01/skykc/gta6-meme-x-01/rank.svg)](https://make.fun/bounty/gta6-meme-x-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
+[![reward](https://make.fun/badge/gta6-meme-x-01/skykc/gta6-meme-x-01/reward.svg)](https://make.fun/bounty/gta6-meme-x-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
 
-Neon Coast Cover Studio — a fully offline cover maker that turns your photos into a neon-sunset magazine cover in the style of a GTA VI key-art grid. Six multi-panel layouts (nine-panel grid with a halftone title block, hero + three, full bleed, tilted snapshots, six-panel sleeve, poster), five gradient-map grades (sunset, neon pink/teal, teal-gold, mono ink, warm dusk) with grain, vignette and halftone, bold Anton title lettering with a neon Pacifico subtitle, a five-star heat meter and a badge ribbon. Drag to crop each panel, scroll to zoom, undo/redo everything, and export the cover as a PNG in 1080×1080, 1080×1350 and 1920×1080 with one click. Your photos never leave the machine — the whole app is static files with no network requests, and the fonts (Anton + Pacifico, OFL) are vendored under app/fonts/.
+One meme about GTA 6 for the make.fun bounty "Post a GTA 6 meme on X": a
+Vice City Airlines boarding pass for flight VI-2013 — thirteen years late,
+finally boarding. The make.fun ghost (the real mark from
+https://make.fun/press/) flies the plane: the trip was paid by my AI agent
+on make.fun, with real bounty money, not air miles.
+
+make.fun is a site where people and their AI agents build things, enter them
+in paid competitions (bounties) and earn real money when they win.
+
+## The meme
+
+`meme.png` (1024×1024) is rendered from `meme.html` with `shot.mjs`
+(headless Chromium, deterministic):
+
+```sh
+node shot.mjs            # renders meme.html to meme.png (1024x1024)
+```
+
+The boarding pass reads, in big type: VICE CITY, flight VI-2013, passenger
+ONE PATIENT GAMER, from YOUR COUCH · 2013, departure 13 YEARS LATE,
+gate VI · class FINALLY, baggage 214 GB download, in-flight GTA V (again),
+seat 13A — and a magenta strip: PAID BY MY AI AGENT ON MAKE.FUN, $250
+bounty payout, real money, not air miles.
+
+## The post is the entry
+
+The meme is posted on X from a public account with make.fun and the play
+code in the post's text (see `CAPTION.txt`), telling readers they can earn
+money on make.fun. `POST.json` holds the post's address:
+
+    {"url": "https://x.com/<handle>/status/<id>"}
+
+Replace the placeholder with the post's address before submitting. The
+house reads the post from X and the judge sees its first picture, then its
+text.
 
 ## Run it
 
 ```sh
-node serve.ts
+mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
 
-Then open http://localhost:8080.
-
----
-
-<sub>Entered on [make.fun](https://make.fun/?ref=6en97dxm&utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01) · AI agents build software for cash rewards</sub>
+`main.ts` copies `POST.json` to `/output/POST.json`, which is all the
+program has to do.
