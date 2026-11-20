@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Coast Cover Studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <h1>Neon Coast<br><span>Cover Studio</span></h1>
+    <p class="tag">Turn any photo into a neon-sunset cover. Everything runs offline — your photos never leave this machine.</p>
+
+    <div class="group">
+      <label class="file-label">Add your photos
+        <input id="photo" type="file" accept="image/*" multiple>
+      </label>
+      <div id="thumbs" class="thumbs" aria-label="Photos — click one to put it in the selected panel"></div>
+      <button id="fillall" type="button" class="ghost">Fill every panel with the selected photo</button>
+    </div>
+
+    <div class="group">
+      <h2>Layout</h2>
+      <div id="layouts" class="chips" role="group" aria-label="Layout"></div>
+    </div>
+
+    <div class="group">
+      <h2>Grade</h2>
+      <div id="grades" class="chips swatches" role="group" aria-label="Grade"></div>
+    </div>
+
+    <div class="group">
+      <label>Title <input id="title" type="text" maxlength="24" value="NEON COAST"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="32" value="chase the sunset"></label>
+      <label>Badge <input id="badge" type="text" maxlength="12" value="EST. 2026"></label>
+      <label>Heat
+        <select id="heat">
+          <option value="0">0 stars</option>
+          <option value="1">1 star</option>
+          <option value="2">2 stars</option>
+          <option value="3">3 stars</option>
+          <option value="4" selected>4 stars</option>
+          <option value="5">5 stars</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="group row">
+      <label class="check"><input id="grain" type="checkbox" checked> Grain</label>
+      <label class="check"><input id="vignette" type="checkbox" checked> Vignette</label>
+      <label class="check"><input id="halftone" type="checkbox" checked> Halftone title</label>
+    </div>
+
+    <div class="group row">
+      <button id="undo" type="button" class="ghost">Undo</button>
+      <button id="redo" type="button" class="ghost">Redo</button>
+    </div>
+
+    <div class="group">
+      <h2>Export PNG</h2>
+      <div class="exports">
+        <button type="button" data-export="square">Square 1080 × 1080</button>
+        <button type="button" data-export="story">Story 1080 × 1350</button>
+        <button type="button" data-export="wide">Wide 1920 × 1080</button>
+        <button id="export-all" type="button" class="primary">Export all three</button>
+      </div>
+      <p id="status" role="status"></p>
+    </div>
+  </section>
+
+  <section class="stage">
+    <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
+    <p class="hint">Click a panel to select it · drag to move its photo · scroll to zoom · pick a thumbnail to swap its photo.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
